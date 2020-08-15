@@ -1,4 +1,4 @@
-# Winnie-Shell-C
+# WinnieShell-C
 Run simple shell commands from C. 
 
 ## Basic Usages
