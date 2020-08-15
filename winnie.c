@@ -11,6 +11,8 @@ const unsigned REDIR_SIZE = 2;
 const unsigned PIPE_SIZE = 3;
 const unsigned MAX_HISTORY = 30;
 const unsigned MAX_COMMAND_NAME = 30;
+const unsigned ANTI_CHINA_WORDLIST_SIZE = 64;
+const char *ANTI_CHINA_WORDLIST[] = {"xjp","winnie","democrocy","freedom","justice"};
 
 void parse_cmd(char input[], char *argv[], int *wait)
 {
@@ -307,6 +309,14 @@ int main()
 			printf("光復香港 時代革命\n");
 			// 五大诉求 缺一不可
 			continue;
+		}
+
+		for (int count = 0; count < ANTI_CHINA_WORDLIST_SIZE; count++){
+			if (strcmp(input_line, ANTI_CHINA_WORDLIST[count]) == 0)
+			{
+				printf("本代码不欢迎反华分子使用\n");
+				exit(EXIT_FAILURE);
+			}
 		}
 
 		if (strcmp(argv[0], "cd") == 0)
