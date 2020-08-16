@@ -185,12 +185,12 @@ void parent(pid_t child_pid, int wait)
 	}
 }
 
-void add_history_feature(char *history[], int history_count, char *input_line)
+void add_history_feature(char *history[], int *history_count, char *input_line)
 {
 
-	if (history_count < MAX_HISTORY)
+	if (*history_count < MAX_HISTORY)
 	{
-		strcpy(history[history_count++], input_line);
+		strcpy(history[(*history_count)++], input_line);
 	}
 	else
 	{
@@ -274,7 +274,7 @@ int main()
 
 		input_line[strcspn(input_line, "\n")] = '\0';
 
-		add_history_feature(history, history_count, input_line);
+		add_history_feature(history, &history_count, input_line);
 		parse_cmd(input_line, argv, &wait);
 		parse_redir(argv, redir_argv);
 
@@ -297,6 +297,7 @@ int main()
 
 		if (strcmp(input_line, "history") == 0)
 		{
+			printf("%s\n", history[1]);
 			for (int k = 0; k < history_count; ++k)
 			{
 				printf("%s\n", history[k]);
