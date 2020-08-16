@@ -12,7 +12,7 @@ const unsigned PIPE_SIZE = 3;
 const unsigned MAX_HISTORY = 30;
 const unsigned MAX_COMMAND_NAME = 30;
 const unsigned ANTI_CHINA_WORDLIST_SIZE = 64;
-const char *ANTI_CHINA_WORDLIST[ANTI_CHINA_WORDLIST_SIZE] = {"xjp","winnie","democrocy","freedom","justice"};
+const char *ANTI_CHINA_WORDLIST[ANTI_CHINA_WORDLIST_SIZE] = {"xjp","winnie","democracy","freedom","justice"};
 
 void parse_cmd(char input[], char *argv[], int *wait)
 {
@@ -311,7 +311,7 @@ int main()
 			continue;
 		}
 
-		for (int count = 0; count < ANTI_CHINA_WORDLIST_SIZE; count++){
+		for (int count = 0; count < sizeof(ANTI_CHINA_WORDLIST) / sizeof(char *); count++){
 			if (strcmp(input_line, ANTI_CHINA_WORDLIST[count]) == 0)
 			{
 				printf("本代码不欢迎反华分子使用\n");
