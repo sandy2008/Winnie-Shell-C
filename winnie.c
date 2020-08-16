@@ -297,7 +297,6 @@ int main()
 
 		if (strcmp(input_line, "history") == 0)
 		{
-			printf("%s\n", history[1]);
 			for (int k = 0; k < history_count; ++k)
 			{
 				printf("%s\n", history[k]);
