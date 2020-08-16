@@ -1,9 +1,9 @@
-#include <unistd.h>
-#include <sys/wait.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <fcntl.h>
+#include <unistd.h>	  // fork()
+#include <sys/wait.h> // waitpid()
+#include <stdio.h>	  // printf(), fgets()
+#include <string.h>	  // strtok(), strcmp(), strdup()
+#include <stdlib.h>	  // free()
+#include <fcntl.h>	  // open(), creat(), close()
 
 const unsigned MAX_LINE_LENGTH = 89;
 const unsigned BUF_SIZE = 64;
